@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<masee-configuration>
+    <property name="init.hibernate">true</property>
+    <define>
+        <aop id="transation">com.mapabc.mas.db.transation.HibernateTransactionHandler</aop>
+    </define>
+    <services>
+        <service id="buildDataService" class="com.yum.importdata.service.impl.BuildDataService">
+            <!--<advice>transation</advice>-->
+        </service>
+    </services>
+    <protocol-router>
+        <sid value="1001" ref="buildDataService" method="buildData"/>
+    </protocol-router>
+</masee-configuration>

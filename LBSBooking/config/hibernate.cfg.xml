@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+<session-factory>
+
+	<!-- 为true表示将Hibernate发送给数据库的sql显示出来  -->
+	<property name="show_sql">true</property>
+	<property name="format_sql">true</property>
+	<property name="dialect">
+		<!--org.hibernate.dialect.PostgreSQLDialect-->
+        <!--PostGis方言-->
+        org.hibernatespatial.postgis.PostgisDialect
+	</property>
+
+	<!--驱动程序-->
+	<property name="connection.driver_class">org.postgresql.Driver</property>
+
+	<!-- JDBC URL -->
+	<property name="connection.url">jdbc:postgresql://localhost:5432/booking</property>
+
+	<!-- 数据库用户名-->
+	<property name="connection.username">postgres</property>
+
+	<!-- 数据库密码-->
+	<property name="connection.password">mapabc</property>
+
+	<!-- c3po config -->
+	<property name="hibernate.c3p0.min_size">5</property>
+	<property name="hibernate.c3p0.max_size">20</property>
+	<property name="hibernate.c3p0.timeout">1800</property>
+	<property name="hibernate.c3p0.idle_test_period">120</property>
+	<property name="hibernate.c3p0.acquire_increment">30</property>
+	<property name="hibernate.c3p0.max_statements">0</property>
+
+    <!-- model config -->
+    <!--<mapping class="com.yum.importdata.dao.dto.Store"/>-->
+
+</session-factory>
+
+</hibernate-configuration>
+
